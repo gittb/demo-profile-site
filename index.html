@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Profile</title>
+  <meta name="description" content="A demo profile site, built in layers.">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <p class="site-mark" data-bind="name">Demo Profile</p>
+  </header>
+
+  <main id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow" data-bind="role">Scaffold layer</p>
+      <h1 id="intro-title" data-bind="tagline">This page is the site skeleton</h1>
+      <p class="note" data-bind="note">
+        Layer L0 establishes the structure, the content data and the deploy
+        pipeline. The design and the real content arrive in the layers that
+        follow.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built in layers.</p>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>

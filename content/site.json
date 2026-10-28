@@ -1,0 +1,6 @@
+{
+  "name": "Demo Profile",
+  "role": "Scaffold layer",
+  "tagline": "This page is the site skeleton",
+  "note": "Layer L0 establishes the structure, the content data and the deploy pipeline. The design and the real content arrive in the layers that follow."
+}
