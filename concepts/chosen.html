@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ines Marchetti — Product designer</title>
+<meta name="description" content="Product designer working on data-heavy tools: dispatch, claims review, inventory. Nine years of screens people use for hours at a time.">
+
+<!-- ============================================================
+     PSW-5 · chosen direction A — editorial / typographic minimal
+     This file is the BUILD TARGET for PSW-6. It is a design
+     reference, not the production page: PSW-6 rebuilds this as
+     index.html, driven by content/site.json and these tokens.
+     ============================================================ -->
+
+<style>
+  :root {
+    color-scheme: light dark;
+
+    /* --- tokens (lift these into PSW-6) --- */
+    --paper: #faf9f6;
+    --ink: #171512;
+    --muted: #6a655c;
+    --rule: #e5e0d6;
+    --accent: #a3401c;
+    --accent-ink: #ffffff;
+
+    --serif: ui-serif, "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --step-0: 1rem;
+    --step-1: 1.125rem;
+    --step-2: 1.5rem;
+    --step-3: 2rem;
+    --step-4: clamp(2.1rem, 6.2vw, 4.3rem);
+
+    --measure: 64ch;
+    --gutter: clamp(1.25rem, 5vw, 3rem);
+    --rhythm: clamp(2.75rem, 7vw, 5.5rem);
+    --radius: 3px;
+    --dur: 140ms;
+    --ease: cubic-bezier(.2, .6, .3, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14120f;
+      --ink: #f1eee7;
+      --muted: #a49d90;
+      --rule: #2c2823;
+      --accent: #e2936e;
+      --accent-ink: #14120f;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--step-0);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; text-wrap: pretty; }
+
+  .wrap { max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter); }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius);
+  }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--paper); color: var(--ink);
+    border: 1px solid var(--accent); border-radius: var(--radius);
+    padding: .5rem .75rem; z-index: 10;
+  }
+  .skip-link:focus { left: var(--gutter); top: .75rem; }
+
+  /* --- masthead --- */
+  .site-head {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    align-items: baseline; justify-content: space-between;
+    padding-block: 1.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mark {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    letter-spacing: .01em;
+    text-decoration: none;
+  }
+  .nav { display: flex; gap: 1.35rem; }
+  .nav a {
+    font-size: .875rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding-block: .25rem;
+    transition: color var(--dur) var(--ease);
+  }
+  .nav a:hover { color: var(--ink); }
+
+  /* --- hero --- */
+  .hero { padding-block: clamp(3rem, 8vw, 6rem) var(--rhythm); }
+  .hero-head { display: flex; align-items: center; gap: .85rem; margin-bottom: 1.6rem; }
+  .avatar { width: 46px; height: 46px; flex: 0 0 auto; border-radius: 50%; overflow: hidden; border: 1px solid var(--rule); }
+  .avatar svg { display: block; width: 100%; height: 100%; }
+
+  .eyebrow {
+    font-size: .75rem; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hero h1 {
+    font-size: var(--step-4);
+    line-height: 1.04;
+    letter-spacing: -0.021em;
+    max-width: 24ch;
+  }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: .85rem 1.5rem; align-items: center; margin-top: 2.1rem; }
+
+  .btn {
+    display: inline-block;
+    font-size: .875rem; font-weight: 600;
+    letter-spacing: .03em;
+    text-decoration: none;
+    padding: .72rem 1.15rem;
+    border-radius: var(--radius);
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent); }
+  .btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .btn-quiet { color: var(--muted); border: 1px solid transparent; padding-inline: .25rem; }
+  .btn-quiet:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* --- sections --- */
+  section + section { border-top: 1px solid var(--rule); }
+  .band { padding-block: var(--rhythm); }
+
+  .section-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.25rem; margin-bottom: 2.25rem; }
+  .section-head h2 { font-size: var(--step-3); letter-spacing: -0.012em; }
+  .section-head .count {
+    font-family: var(--mono); font-size: .75rem; color: var(--muted);
+    letter-spacing: .06em;
+  }
+  .lede { max-width: var(--measure); color: var(--muted); margin-top: .5rem; font-size: var(--step-1); }
+
+  .section-head.tight { margin-bottom: 0; }
+
+  /* --- work: a typographic list, not cards --- */
+  .work-list { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+  .work-list li { border-top: 1px solid var(--rule); }
+  .work-list li:last-child { border-bottom: 1px solid var(--rule); }
+
+  .work-link {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 1.6rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .work-index {
+    font-family: var(--mono); font-size: .75rem; color: var(--muted);
+    letter-spacing: .06em; padding-top: .45rem;
+  }
+  .work-title {
+    display: block;
+    font-family: var(--serif);
+    font-size: var(--step-2);
+    line-height: 1.2;
+    letter-spacing: -0.008em;
+    transition: color var(--dur) var(--ease);
+  }
+  .work-sub { color: var(--muted); font-size: .95rem; font-family: var(--sans); letter-spacing: 0; }
+  .work-summary {
+    display: block; margin-top: .55rem;
+    max-width: 62ch; color: var(--muted);
+    font-size: .95rem;
+  }
+  .work-meta {
+    display: block; margin-top: .8rem;
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .work-link:hover .work-title,
+  .work-link:focus-visible .work-title { color: var(--accent); }
+  .work-link:hover .work-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+
+  /* --- about --- */
+  .about-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .prose { max-width: 62ch; }
+  .prose p + p { margin-top: 1.1rem; }
+
+  .clusters { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.75rem 2rem; margin-top: 1.25rem; }
+
+  .subhead {
+    font-family: var(--serif);
+    font-size: var(--step-1);
+    letter-spacing: -0.006em;
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+  .cluster-label {
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .cluster ul { list-style: none; margin: .6rem 0 0; padding: 0; }
+  .cluster li { padding-block: .28rem; border-bottom: 1px solid var(--rule); font-size: .92rem; }
+  .cluster li:last-child { border-bottom: 0; }
+
+  /* --- contact --- */
+  .contact-grid { display: grid; gap: 2rem; align-items: start; }
+  .contact-email {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: .12rem;
+    margin-top: 1.5rem;
+    overflow-wrap: anywhere;
+  }
+  .contact-email:hover { color: var(--accent); }
+
+  .copy-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: .9rem; }
+  .copy-btn {
+    font: inherit; font-size: .78rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); background: transparent;
+    border: 1px solid var(--rule); border-radius: var(--radius);
+    padding: .42rem .7rem; cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .copy-btn:hover { color: var(--ink); border-color: var(--ink); }
+  .copy-status { font-size: .8rem; color: var(--accent); min-height: 1.2em; }
+
+  .socials { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .socials a {
+    font-size: .875rem; color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid var(--rule); padding-bottom: .1rem;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .socials a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* --- footer --- */
+  .site-foot {
+    border-top: 1px solid var(--rule);
+    padding-block: 2rem 3rem;
+    font-size: .8rem; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+  }
+
+  @media (min-width: 860px) {
+    .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
+    .about-body { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  @media (max-width: 520px) {
+    .work-link { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+    .work-index { padding-top: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-head wrap">
+  <a class="mark" href="#main">Ines Marchetti</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-head">
+      <span class="avatar" role="img" aria-label="Abstract portrait generated from the site palette: overlapping translucent discs.">
+        <svg viewBox="0 0 46 46" aria-hidden="true" focusable="false">
+          <rect width="46" height="46" fill="#e8e2d6"/>
+          <circle cx="18" cy="19" r="13" fill="#a3401c" opacity=".8"/>
+          <circle cx="30" cy="25" r="11" fill="#171512" opacity=".55"/>
+          <circle cx="22" cy="32" r="8" fill="#faf9f6" opacity=".65"/>
+        </svg>
+      </span>
+      <p class="eyebrow">Product designer · Amsterdam</p>
+    </div>
+
+    <h1 id="hero-title">I design the screens that hold a product together — the tables, the review queues, the settings nobody demos.</h1>
+
+    <p class="cta-row">
+      <a class="btn btn-primary" href="#work">See selected work</a>
+      <a class="btn btn-quiet" href="#contact">Get in touch</a>
+    </p>
+  </section>
+
+  <section id="work" class="band wrap" aria-labelledby="work-title">
+    <div class="section-head">
+      <h2 id="work-title">Selected work</h2>
+      <span class="count">04</span>
+    </div>
+    <p class="lede">Four projects, all of them tools someone uses for hours rather than minutes.</p>
+
+    <ol class="work-list">
+      <li>
+        <a class="work-link" href="https://example.com/" rel="noopener">
+          <span class="work-index" aria-hidden="true">01</span>
+          <span>
+            <span class="work-title">Dispatch <span class="work-sub">— scheduling for field crews</span></span>
+            <span class="work-summary">Rebuilt the dispatcher's day around the exceptions instead of the happy path. Reschedules fell 12% in the first quarter.</span>
+            <span class="work-meta">Lead product designer · Research, Workflow, Web app</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="work-link" href="https://example.net/" rel="noopener">
+          <span class="work-index" aria-hidden="true">02</span>
+          <span>
+            <span class="work-title">Review <span class="work-sub">— a claims queue</span></span>
+            <span class="work-summary">Replaced a forty-field form with a keyboard-first review flow. Median review time down 31%.</span>
+            <span class="work-meta">Product designer · Accessibility, Forms, Data</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="work-link" href="https://example.org/" rel="noopener">
+          <span class="work-index" aria-hidden="true">03</span>
+          <span>
+            <span class="work-title">Reconcile <span class="work-sub">— inventory exceptions</span></span>
+            <span class="work-summary">A table that explains its own disagreements, so a shift can be closed in a single pass.</span>
+            <span class="work-meta">Product designer · Information architecture, Tables</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="work-link" href="https://example.com/" rel="noopener">
+          <span class="work-index" aria-hidden="true">04</span>
+          <span>
+            <span class="work-title">Ledger <span class="work-sub">— the design system behind all three</span></span>
+            <span class="work-summary">Tokens, tables and form primitives shared across four products and two platforms.</span>
+            <span class="work-meta">Systems design · Design system, Tokens, Documentation</span>
+          </span>
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <section id="about" class="band wrap" aria-labelledby="about-title">
+    <div class="section-head">
+      <h2 id="about-title">About</h2>
+    </div>
+    <div class="about-body">
+      <div class="prose">
+        <p>I've spent nine years on software people use for hours at a stretch: dispatch boards, claims review, inventory reconciliation. The work is unglamorous, and the details carry it — a column 40px too narrow costs someone a hundred small decisions a day.</p>
+        <p>I spend the first week with whoever actually does the job, prototype in the second, and ship in small pieces after that. I write my own specs and stay until the thing is running in production; a handoff isn't a deliverable.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead">How I work</h3>
+    <div class="clusters">
+      <div class="cluster">
+        <p class="cluster-label">Design</p>
+        <ul>
+          <li>Interface design</li>
+          <li>Design tokens</li>
+          <li>Prototyping</li>
+          <li>Typography and layout</li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <p class="cluster-label">Research</p>
+        <ul>
+          <li>Interviews</li>
+          <li>Usability testing</li>
+          <li>Field observation</li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <p class="cluster-label">Build</p>
+        <ul>
+          <li>HTML and CSS</li>
+          <li>Storybook</li>
+          <li>Git</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="band wrap" aria-labelledby="contact-title">
+    <div class="contact-grid">
+      <div>
+        <div class="section-head tight">
+          <h2 id="contact-title">Contact</h2>
+        </div>
+        <p class="lede">Open to product design work on tools — internal, B2B, or the parts of a consumer product nobody wants to own. I reply within two days.</p>
+      </div>
+      <div>
+        <a class="contact-email" href="mailto:hello@example.com">hello@example.com</a>
+        <div class="copy-row">
+          <button class="copy-btn" type="button" id="copy-email">Copy address</button>
+          <p class="copy-status" role="status" aria-live="polite" id="copy-status"></p>
+        </div>
+        <ul class="socials">
+          <li><a href="https://example.org/" rel="noopener">Work notes</a></li>
+          <li><a href="https://example.net/" rel="noopener">Professional profile</a></li>
+          <li><a href="https://example.com/" rel="noopener">Code</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot wrap">
+  <p>Ines Marchetti is a fictional persona. This site is a build demo, and outbound links point to reserved example domains.</p>
+  <p>Built in layers.</p>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var btn = document.getElementById("copy-email");
+    var status = document.getElementById("copy-status");
+    var email = "hello@example.com";
+    if (!btn || !status) return;
+
+    btn.addEventListener("click", function () {
+      function announce(msg) { status.textContent = msg; }
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        announce("Copy unavailable — select the address above.");
+        return;
+      }
+      navigator.clipboard.writeText(email).then(function () {
+        announce("Copied");
+        setTimeout(function () { announce(""); }, 2000);
+      }).catch(function () {
+        announce("Copy unavailable — select the address above.");
+      });
+    });
+  })();
+</script>
+</body>
+</html>

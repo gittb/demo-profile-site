@@ -1,6 +1,114 @@
 {
-  "name": "Demo Profile",
-  "role": "Scaffold layer",
-  "tagline": "This page is the site skeleton",
-  "note": "Layer L0 establishes the structure, the content data and the deploy pipeline. The design and the real content arrive in the layers that follow."
+  "name": "Ines Marchetti",
+  "role": "Product designer",
+  "tagline": "I design the screens that hold a product together — the tables, the review queues, the settings nobody demos.",
+
+  "meta": {
+    "title": "Ines Marchetti — Product designer",
+    "description": "Product designer working on data-heavy tools: dispatch, claims review, inventory. Nine years of screens people use for hours at a time.",
+    "ogTitle": "Ines Marchetti — Product designer",
+    "ogDescription": "I design the screens that hold a product together — the tables, the review queues, the settings nobody demos.",
+    "themeColor": "#faf9f6"
+  },
+
+  "nav": [
+    { "label": "Work", "href": "#work" },
+    { "label": "About", "href": "#about" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+
+  "hero": {
+    "eyebrow": "Product designer · Amsterdam",
+    "primaryCta": { "label": "See selected work", "href": "#work" },
+    "secondaryCta": { "label": "Get in touch", "href": "#contact" },
+    "portrait": {
+      "alt": "Abstract portrait generated from the site palette: overlapping translucent discs."
+    }
+  },
+
+  "work": {
+    "heading": "Selected work",
+    "intro": "Four projects, all of them tools someone uses for hours rather than minutes.",
+    "items": [
+      {
+        "title": "Dispatch",
+        "subtitle": "Scheduling for field crews",
+        "summary": "Rebuilt the dispatcher's day around the exceptions instead of the happy path. Reschedules fell 12% in the first quarter.",
+        "role": "Lead product designer",
+        "tags": ["Research", "Workflow", "Web app"],
+        "href": "https://example.com/",
+        "thumbAlt": "Abstract thumbnail: overlapping schedule bars."
+      },
+      {
+        "title": "Review",
+        "subtitle": "A claims queue",
+        "summary": "Replaced a forty-field form with a keyboard-first review flow. Median review time down 31%.",
+        "role": "Product designer",
+        "tags": ["Accessibility", "Forms", "Data"],
+        "href": "https://example.net/",
+        "thumbAlt": "Abstract thumbnail: stacked form rows at three densities."
+      },
+      {
+        "title": "Reconcile",
+        "subtitle": "Inventory exceptions",
+        "summary": "A table that explains its own disagreements, so a shift can be closed in a single pass.",
+        "role": "Product designer",
+        "tags": ["Information architecture", "Tables"],
+        "href": "https://example.org/",
+        "thumbAlt": "Abstract thumbnail: two columns meeting at a hairline rule."
+      },
+      {
+        "title": "Ledger",
+        "subtitle": "The design system behind all three",
+        "summary": "Tokens, tables and form primitives shared across four products and two platforms.",
+        "role": "Systems design",
+        "tags": ["Design system", "Tokens", "Documentation"],
+        "href": "https://example.com/",
+        "thumbAlt": "Abstract thumbnail: a sparse grid of swatches and rules."
+      }
+    ]
+  },
+
+  "about": {
+    "heading": "About",
+    "paragraphs": [
+      "I've spent nine years on software people use for hours at a stretch: dispatch boards, claims review, inventory reconciliation. The work is unglamorous, and the details carry it — a column 40px too narrow costs someone a hundred small decisions a day.",
+      "I spend the first week with whoever actually does the job, prototype in the second, and ship in small pieces after that. I write my own specs and stay until the thing is running in production; a handoff isn't a deliverable."
+    ]
+  },
+
+  "stack": {
+    "heading": "How I work",
+    "clusters": [
+      {
+        "label": "Design",
+        "items": ["Interface design", "Design tokens", "Prototyping", "Typography and layout"]
+      },
+      {
+        "label": "Research",
+        "items": ["Interviews", "Usability testing", "Field observation"]
+      },
+      {
+        "label": "Build",
+        "items": ["HTML and CSS", "Storybook", "Git"]
+      }
+    ]
+  },
+
+  "contact": {
+    "heading": "Contact",
+    "blurb": "Open to product design work on tools — internal, B2B, or the parts of a consumer product nobody wants to own. I reply within two days.",
+    "email": "hello@example.com",
+    "emailLabel": "Email",
+    "copiedLabel": "Copied",
+    "socials": [
+      { "label": "Work notes", "href": "https://example.org/" },
+      { "label": "Professional profile", "href": "https://example.net/" },
+      { "label": "Code", "href": "https://example.com/" }
+    ]
+  },
+
+  "footer": {
+    "note": "Ines Marchetti is a fictional persona. This site is a build demo, and outbound links point to reserved example domains."
+  }
 }
