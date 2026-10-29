@@ -3,31 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Demo Profile</title>
-  <meta name="description" content="A demo profile site, built in layers.">
+  <meta name="color-scheme" content="light dark">
+  <title>Ines Marchetti — Product designer</title>
+  <meta name="description" content="Product designer working on data-heavy tools: dispatch, claims review, inventory. Nine years of screens people use for hours at a time.">
   <link rel="stylesheet" href="assets/css/base.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <p class="site-mark" data-bind="name">Demo Profile</p>
+  <header class="site-head wrap">
+    <a class="site-mark" href="index.html" data-bind="name">Ines Marchetti</a>
   </header>
 
-  <main id="main">
+  <main id="main" class="wrap" tabindex="-1">
     <section class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow" data-bind="role">Scaffold layer</p>
-      <h1 id="intro-title" data-bind="tagline">This page is the site skeleton</h1>
+      <p class="eyebrow" data-bind="role">Product designer</p>
+      <h1 id="intro-title" data-bind="tagline">I design the screens that hold a product together — the tables, the review queues, the settings nobody demos.</h1>
       <p class="note" data-bind="note">
-        Layer L0 establishes the structure, the content data and the deploy
-        pipeline. The design and the real content arrive in the layers that
-        follow.
+        The shell and the design tokens are in place. The hero, the selected
+        work, the about and the contact sections arrive in the next layers.
       </p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>Built in layers.</p>
+  <footer class="site-foot wrap">
+    <p data-bind="footerNote">Ines Marchetti is a fictional persona. This site is a build demo, and outbound links point to reserved example domains.</p>
+    <p data-bind="footerTagline">Built in layers.</p>
   </footer>
 
   <script src="assets/js/site.js" defer></script>

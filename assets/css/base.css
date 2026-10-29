@@ -1,25 +1,53 @@
-/* L0 — structural baseline only. Design tokens arrive in L4. */
+/* L4 — design tokens and page shell.
+   Tokens are lifted from concepts/chosen.html (the chosen direction). The L0
+   structural baseline is kept — box model, skip link, focus, reduced motion —
+   with its spacing and radius retuned to the chosen tokens. Sections for hero,
+   work, about and contact arrive in L5–L7. */
 
 :root {
   color-scheme: light dark;
-  --measure: 62ch;
-  --space: clamp(1.25rem, 4vw, 2.5rem);
-  --ink: #14161a;
-  --paper: #ffffff;
-  --muted: #5b6270;
-  --rule: #e3e6ea;
-  --accent: #1a4fd6;
+
+  /* --- palette --- */
+  --paper: #faf9f6;
+  --ink: #171512;
+  --muted: #6a655c;
+  --rule: #e5e0d6;
+  --accent: #a3401c;
+  --accent-ink: #ffffff;
+
+  /* --- type stacks --- */
+  --serif: ui-serif, "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* --- type scale --- */
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.1rem, 6.2vw, 4.3rem);
+
+  /* --- layout, motion --- */
+  --measure: 64ch;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --rhythm: clamp(2.75rem, 7vw, 5.5rem);
+  --radius: 3px;
+  --dur: 140ms;
+  --ease: cubic-bezier(.2, .6, .3, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #eceef2;
-    --paper: #101216;
-    --muted: #9aa2b1;
-    --rule: #262a31;
-    --accent: #7ea2ff;
+    --paper: #14120f;
+    --ink: #f1eee7;
+    --muted: #a49d90;
+    --rule: #2c2823;
+    --accent: #e2936e;
+    --accent-ink: #14120f;
   }
 }
+
+/* --- structural baseline (from L0) --- */
 
 *,
 *::before,
@@ -27,76 +55,52 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
-  padding: var(--space);
-  background: var(--paper);
-  color: var(--ink);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space) * 1.5);
-  min-height: 100svh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.site-header,
-main > *,
-.site-footer {
-  width: 100%;
-  max-width: var(--measure);
-  margin-inline: auto;
-}
-
-.site-mark {
+h1,
+h2,
+h3 {
   margin: 0;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.eyebrow {
-  margin: 0 0 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 6vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: var(--serif);
+  font-weight: 500;
   text-wrap: balance;
 }
 
-.note {
+p {
   margin: 0;
-  max-width: 48ch;
-  color: var(--muted);
+  text-wrap: pretty;
 }
 
-.site-footer {
-  border-top: 1px solid var(--rule);
-  padding-top: 1rem;
-  font-size: 0.875rem;
-  color: var(--muted);
+a {
+  color: inherit;
 }
 
-.site-footer p {
-  margin: 0;
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
 }
 
 .skip-link {
@@ -107,19 +111,83 @@ h1 {
   background: var(--paper);
   color: var(--ink);
   border: 1px solid var(--accent);
-  border-radius: 6px;
+  border-radius: var(--radius);
   z-index: 10;
 }
 
 .skip-link:focus {
-  left: var(--space);
-  top: var(--space);
+  left: var(--gutter);
+  top: 0.75rem;
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 3px;
+/* --- shell: masthead --- */
+
+.site-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-mark {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+/* --- shell: main --- */
+
+main {
+  flex: 1;
+}
+
+/* Block rhythm belongs to the section, as in the chosen direction, so the hero
+   that replaces .intro in L5 keeps its own padding rather than doubling it. */
+.intro {
+  padding-block: var(--rhythm);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.intro .eyebrow {
+  margin-bottom: 1.1rem;
+}
+
+main h1 {
+  max-width: 24ch;
+  font-size: var(--step-4);
+  line-height: 1.04;
+  letter-spacing: -0.021em;
+}
+
+.note {
+  max-width: var(--measure);
+  margin-top: 1.75rem;
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+/* --- shell: footer --- */
+
+.site-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  padding-block: 2rem 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: reduce) {

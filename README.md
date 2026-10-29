@@ -10,9 +10,10 @@ Live: https://gittb.github.io/demo-profile-site/
 ```
 index.html            Page markup (semantic landmarks, skip link)
 content/site.json     All copy lives here — data, not markup
-assets/css/base.css   Structural baseline (design tokens arrive in L4)
+assets/css/base.css   Design tokens and the page shell
 assets/js/site.js     Hydrates bound elements from content/site.json
 .nojekyll             Tells Pages to serve files as-is, no Jekyll pass
+concepts/chosen.html  Chosen design direction — reference, not shipped
 ```
 
 Copy is data: elements marked `data-bind="key"` are filled from

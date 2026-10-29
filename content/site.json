@@ -2,6 +2,7 @@
   "name": "Ines Marchetti",
   "role": "Product designer",
   "tagline": "I design the screens that hold a product together — the tables, the review queues, the settings nobody demos.",
+  "note": "The shell and the design tokens are in place. The hero, the selected work, the about and the contact sections arrive in the next layers.",
 
   "meta": {
     "title": "Ines Marchetti — Product designer",
@@ -108,7 +109,6 @@
     ]
   },
 
-  "footer": {
-    "note": "Ines Marchetti is a fictional persona. This site is a build demo, and outbound links point to reserved example domains."
-  }
+  "footerNote": "Ines Marchetti is a fictional persona. This site is a build demo, and outbound links point to reserved example domains.",
+  "footerTagline": "Built in layers."
 }
